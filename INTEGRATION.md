@@ -1,6 +1,6 @@
 # 日日有序：個人資料同步
 
-本機網站已連接 Supabase 專案 Test1102。發布時請一併上傳 index.html、survey.js、cloud.js、cloud.css、dashboard.js、vendor/ 和圖片。請使用 HTTP/HTTPS 網址開啟。
+本機網站已連接 Supabase 專案 Test1102。發布時請一併上傳 index.html、wellbeing.js、wellbeing.css、cloud.js、cloud.css、dashboard.js、vendor/ 和圖片。請使用 HTTP/HTTPS 網址開啟。
 
 ## 使用流程
 
@@ -12,7 +12,7 @@
 
 ## 資料與權限
 
-- `survey_responses`：既有八題問卷；訪客可新增，無法讀取其他人的答案。
+- `survey_responses`：舊版使用回饋資料表；新自我自律評估不會寫入此表，答案僅儲存於瀏覽器。
 - `rhythm_documents`：以 `(user_id, kind)` 為主鍵的個人資料，包含 `habits`、`daily_entries`、`study_tasks` 三個分類。原有日期索引、欄位與歷史紀錄完整保留在 JSON 中。每筆具有版本號，寫入時檢查版本以避免覆蓋其他裝置的修改。
 - RLS 限制登入者只能讀寫自己的記錄。訪客無權讀寫個人資料表。
 - `save_rhythm_document` 使用呼叫者權限，依 `auth.uid()` 寫入，未使用管理者金鑰。
